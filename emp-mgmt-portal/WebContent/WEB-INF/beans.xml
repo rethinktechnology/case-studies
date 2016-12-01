@@ -10,6 +10,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<property name="employeeDAO" ref="employeeDAO" />
 	</bean>
 	
+	<bean id="appController" class="com.msrm.empmgmtportal.module.ui.controller.ApplicationControllers" />
+	
 	<bean id="employeeDAO"
 		class="com.msrm.empmgmtportal.module.dal.dao.impl.EmployeeDAOImpl" />
 

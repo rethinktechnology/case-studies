@@ -15,6 +15,9 @@ public class ApplicationUIController {
 	@Autowired
 	private EmployeeManager employeeManager;
 
+	@Autowired
+	ApplicationControllers appController;
+
 	public EmployeeManager getEmployeeManager() {
 		return employeeManager;
 	}
@@ -31,6 +34,11 @@ public class ApplicationUIController {
 
 	@RequestMapping("/hello")
 	public ModelAndView helloPage() {
+		System.out.println(appController);
+		if(appController!=null) {
+			TestController controller = (TestController) appController.getController(ApplicationControllers.Type.testController);
+			controller.test();
+		}
 		return new ModelAndView("helloScreen", "msg", "Welcome, Message for testing purpose");
 	}
 
